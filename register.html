@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>অভিনয়ঘর | Registration</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial,sans-serif;
+  background:#0b0b0f;
+  color:#fff;
+  padding:25px 16px;
+}
+.form-box{
+  max-width:650px;
+  margin:auto;
+  background:#15151b;
+  border:1px solid #292930;
+  border-radius:18px;
+  padding:30px 22px;
+}
+h1{
+  text-align:center;
+  margin-bottom:8px;
+}
+.subtitle{
+  text-align:center;
+  color:#aaa;
+  margin-bottom:28px;
+}
+label{
+  display:block;
+  margin:18px 0 7px;
+  font-weight:bold;
+}
+input,select,textarea{
+  width:100%;
+  padding:13px;
+  border-radius:8px;
+  border:1px solid #383842;
+  background:#0d0d12;
+  color:#fff;
+  font-size:15px;
+}
+textarea{
+  min-height:110px;
+  resize:vertical;
+}
+button{
+  width:100%;
+  margin-top:28px;
+  padding:15px;
+  border:0;
+  border-radius:8px;
+  background:#d4af37;
+  color:#111;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.note{
+  margin-top:18px;
+  text-align:center;
+  color:#888;
+  font-size:13px;
+}
+.back{
+  display:block;
+  text-align:center;
+  margin-top:20px;
+  color:#d4af37;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="form-box">
+
+<h1>Model & Talent Registration</h1>
+
+<p class="subtitle">
+অভিনয়ঘরের সঙ্গে যুক্ত হতে আপনার তথ্য দিন
+</p>
+
+<form>
+
+<label>পূর্ণ নাম *</label>
+<input type="text" placeholder="আপনার পূর্ণ নাম" required>
+
+<label>বয়স *</label>
+<input type="number" placeholder="আপনার বয়স" required>
+
+<label>মোবাইল নম্বর *</label>
+<input type="tel" placeholder="01XXXXXXXXX" required>
+
+<label>ইমেইল</label>
+<input type="email" placeholder="আপনার ইমেইল">
+
+<label>আপনি কোন ক্ষেত্রে আগ্রহী? *</label>
+<select required>
+<option value="">একটি নির্বাচন করুন</option>
+<option>অভিনয়</option>
+<option>মডেলিং</option>
+<option>উভয়ই</option>
+<option>অন্যান্য</option>
+</select>
+
+<label>অভিজ্ঞতা</label>
+<textarea placeholder="আপনার অভিনয়/মডেলিংয়ের অভিজ্ঞতা থাকলে লিখুন"></textarea>
+
+<label>নিজের সম্পর্কে কিছু বলুন</label>
+<textarea placeholder="সংক্ষেপে নিজের সম্পর্কে লিখুন"></textarea>
+
+<label>প্রোফাইল ছবি</label>
+<input type="file" accept="image/*">
+
+<label>CV / Resume</label>
+<input type="file" accept=".pdf,.doc,.docx">
+
+<button type="submit">Registration Submit করুন</button>
+
+<p class="note">
+আপনার তথ্য গোপন রাখা হবে এবং প্রয়োজন অনুযায়ী যোগাযোগ করা হবে।
+</p>
+
+<a class="back" href="index.html">← Home Page-এ ফিরে যান</a>
+
+</form>
+
+</div>
+
+</body>
+</html>
