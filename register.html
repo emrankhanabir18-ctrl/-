@@ -4,104 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>অভিনয়ঘর | Registration</title>
+
 <style>
-
 *{box-sizing:border-box;margin:0;padding:0}
-<script>
-const SUPABASE_URL = "https://vkhhznfhutskmcutnron.supabase.co";
-const SUPABASE_KEY = "YOUR_PUBLISHABLE_KEY";sb_publishable_N5HBeMAoKu4XlbCHnvClLQ_GQm9R-lx
 
-document.querySelector("form").addEventListener("submit", async function(e) {
-  e.preventDefault();
-
-  const inputs = document.querySelectorAll("input, select, textarea");
-
-  const data = {
-    name: inputs[0].value,
-    age: inputs[1].value,
-    phone: inputs[2].value,
-    email: inputs[3].value,
-    category: inputs[4].value,
-    experience: inputs[5].value,
-    about: inputs[6].value
-  };
-
-  const response = await fetch(
-    SUPABASE_URL + "/rest/v1/model_applications",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "apikey": SUPABASE_KEY,
-        "Authorization": "Bearer " + SUPABASE_KEY,
-        "Prefer": "return=minimal"
-      },<script>
-const SUPABASE_URL = "https://vkhhznfhutskmcutnron.supabase.co";
-const SUPABASE_KEY = "তোমার Publishable Key এখানে বসাও";
-sb_publishable_N5HBeMAoKu4XlbCHnvClLQ_GQm9R-lx
-document.querySelector("form").addEventListener("submit", async function(e) {
-  e.preventDefault();
-
-  const fields = document.querySelectorAll("input, select, textarea");
-
-  const data = {
-    name: fields[0].value,
-    age: fields[1].value,
-    phone: fields[2].value,
-    email: fields[3].value,
-    category: fields[4].value,
-    experience: fields[5].value,
-    about: fields[6].value
-  };
-
-  try {
-    const res = await fetch(
-      SUPABASE_URL + "/rest/v1/model_applications",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "apikey": SUPABASE_KEY,
-          "Authorization": "Bearer " + SUPABASE_KEY,
-          "Prefer": "return=minimal"
-        },
-        body: JSON.stringify(data)
-      }
-    );
-
-    if (!res.ok) {
-      const error = await res.text();
-      alert("❌ আবেদন জমা হয়নি\n" + error);
-      return;
-    }
-
-    alert("❤️ আবেদন সফলভাবে জমা হয়েছে!");
-    this.reset();
-
-  } catch (error) {
-    alert("❌ সংযোগে সমস্যা হয়েছে");
-  }
-});
-</script>
-      body: JSON.stringify(data)
-    }
-  );
-
-  if (response.ok) {
-    alert("❤️ আবেদন সফলভাবে জমা হয়েছে!");
-    this.reset();
-  } else {
-    const error = await response.text();
-    alert("আবেদন জমা হয়নি: " + error);
-  }
-});
-</script>
-  body{
+body{
   font-family:Arial,sans-serif;
   background:#0b0b0f;
   color:#fff;
   padding:25px 16px;
 }
+
 .form-box{
   max-width:650px;
   margin:auto;
@@ -110,20 +23,21 @@ document.querySelector("form").addEventListener("submit", async function(e) {
   border-radius:18px;
   padding:30px 22px;
 }
-h1{
-  text-align:center;
-  margin-bottom:8px;
-}
+
+h1{text-align:center;margin-bottom:8px}
+
 .subtitle{
   text-align:center;
   color:#aaa;
   margin-bottom:28px;
 }
+
 label{
   display:block;
   margin:18px 0 7px;
   font-weight:bold;
 }
+
 input,select,textarea{
   width:100%;
   padding:13px;
@@ -133,10 +47,12 @@ input,select,textarea{
   color:#fff;
   font-size:15px;
 }
+
 textarea{
   min-height:110px;
   resize:vertical;
 }
+
 button{
   width:100%;
   margin-top:28px;
@@ -149,12 +65,14 @@ button{
   font-weight:bold;
   cursor:pointer;
 }
+
 .note{
   margin-top:18px;
   text-align:center;
   color:#888;
   font-size:13px;
 }
+
 .back{
   display:block;
   text-align:center;
@@ -171,44 +89,42 @@ button{
 
 <h1>Model & Talent Registration</h1>
 
-<p class="subtitle">
-অভিনয়ঘরের সঙ্গে যুক্ত হতে আপনার তথ্য দিন
-</p>
+<p class="subtitle">অভিনয়ঘরের সঙ্গে যুক্ত হতে আপনার তথ্য দিন</p>
 
-<form>
+<form id="registrationForm">
 
 <label>পূর্ণ নাম *</label>
-<input type="text" placeholder="আপনার পূর্ণ নাম" required>
+<input id="name" type="text" placeholder="আপনার পূর্ণ নাম" required>
 
 <label>বয়স *</label>
-<input type="number" placeholder="আপনার বয়স" required>
+<input id="age" type="number" placeholder="আপনার বয়স" required>
 
 <label>মোবাইল নম্বর *</label>
-<input type="tel" placeholder="01XXXXXXXXX" required>
+<input id="phone" type="tel" placeholder="01XXXXXXXXX" required>
 
 <label>ইমেইল</label>
-<input type="email" placeholder="আপনার ইমেইল">
+<input id="email" type="email" placeholder="আপনার ইমেইল">
 
 <label>আপনি কোন ক্ষেত্রে আগ্রহী? *</label>
-<select required>
+<select id="category" required>
 <option value="">একটি নির্বাচন করুন</option>
-<option>অভিনয়</option>
-<option>মডেলিং</option>
-<option>উভয়ই</option>
-<option>অন্যান্য</option>
+<option value="অভিনয়">অভিনয়</option>
+<option value="মডেলিং">মডেলিং</option>
+<option value="উভয়ই">উভয়ই</option>
+<option value="অন্যান্য">অন্যান্য</option>
 </select>
 
 <label>অভিজ্ঞতা</label>
-<textarea placeholder="আপনার অভিনয়/মডেলিংয়ের অভিজ্ঞতা থাকলে লিখুন"></textarea>
+<textarea id="experience" placeholder="আপনার অভিনয়/মডেলিংয়ের অভিজ্ঞতা থাকলে লিখুন"></textarea>
 
 <label>নিজের সম্পর্কে কিছু বলুন</label>
-<textarea placeholder="সংক্ষেপে নিজের সম্পর্কে লিখুন"></textarea>
+<textarea id="about" placeholder="সংক্ষেপে নিজের সম্পর্কে লিখুন"></textarea>
 
 <label>প্রোফাইল ছবি</label>
-<input type="file" accept="image/*">
+<input id="photo" type="file" accept="image/*">
 
 <label>CV / Resume</label>
-<input type="file" accept=".pdf,.doc,.docx">
+<input id="cv" type="file" accept=".pdf,.doc,.docx">
 
 <button type="submit">Registration Submit করুন</button>
 
@@ -219,8 +135,58 @@ button{
 <a class="back" href="index.html">← Home Page-এ ফিরে যান</a>
 
 </form>
-
 </div>
+
+<script>
+const SUPABASE_URL = "https://vkhhznfhutskmcutnron.supabase.co";
+const SUPABASE_KEY = "YOUR_PUBLISHABLE_KEY";sb_publishable_N5HBeMAoKu4XlbCHnvClLQ_GQm9R-lx
+
+document.getElementById("registrationForm").addEventListener("submit", async function(e){
+
+  e.preventDefault();
+
+  const data = {
+    name: document.getElementById("name").value,
+    age: Number(document.getElementById("age").value),
+    phone: document.getElementById("phone").value,
+    email: document.getElementById("email").value,
+    category: document.getElementById("category").value,
+    experience: document.getElementById("experience").value,
+    about: document.getElementById("about").value
+  };
+
+  try {
+
+    const response = await fetch(
+      SUPABASE_URL + "/rest/v1/model_applications",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": SUPABASE_KEY,
+          "Authorization": "Bearer " + SUPABASE_KEY,
+          "Prefer": "return=minimal"
+        },
+        body: JSON.stringify(data)
+      }
+    );
+
+    if (!response.ok) {
+      const error = await response.text();
+      alert("❌ আবেদন জমা হয়নি:\n" + error);
+      return;
+    }
+
+    alert("❤️ আবেদন সফলভাবে জমা হয়েছে!");
+    this.reset();
+
+  } catch(error) {
+    alert("❌ সংযোগে সমস্যা হয়েছে।");
+    console.error(error);
+  }
+
+});
+</script>
 
 </body>
 </html>
