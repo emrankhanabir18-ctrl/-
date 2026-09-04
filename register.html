@@ -5,8 +5,51 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>অভিনয়ঘর | Registration</title>
 <style>
+
 *{box-sizing:border-box;margin:0;padding:0}
-body{
+<script>
+const SUPABASE_URL = "https://vkhhznfhutskmcutnron.supabase.co";
+const SUPABASE_KEY = "YOUR_PUBLISHABLE_KEY";sb_publishable_N5HBeMAoKu4XlbCHnvClLQ_GQm9R-lx
+
+document.querySelector("form").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const inputs = document.querySelectorAll("input, select, textarea");
+
+  const data = {
+    name: inputs[0].value,
+    age: inputs[1].value,
+    phone: inputs[2].value,
+    email: inputs[3].value,
+    category: inputs[4].value,
+    experience: inputs[5].value,
+    about: inputs[6].value
+  };
+
+  const response = await fetch(
+    SUPABASE_URL + "/rest/v1/model_applications",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "apikey": SUPABASE_KEY,
+        "Authorization": "Bearer " + SUPABASE_KEY,
+        "Prefer": "return=minimal"
+      },
+      body: JSON.stringify(data)
+    }
+  );
+
+  if (response.ok) {
+    alert("❤️ আবেদন সফলভাবে জমা হয়েছে!");
+    this.reset();
+  } else {
+    const error = await response.text();
+    alert("আবেদন জমা হয়নি: " + error);
+  }
+});
+</script>
+  body{
   font-family:Arial,sans-serif;
   background:#0b0b0f;
   color:#fff;
